@@ -50,7 +50,7 @@
 
         <!-- Controles de movimiento -->
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center">
@@ -60,7 +60,7 @@
                 android:id="@+id/btnNorth"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Norte"
+                android:text="▲"
                 android:backgroundTint="#00FF00"
                 android:textColor="@android:color/black"
                 android:layout_marginBottom="8dp" />
@@ -76,7 +76,7 @@
                     android:id="@+id/btnWest"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Oeste"
+                    android:text="◀"
                     android:backgroundTint="#FFFF00"
                     android:textColor="@android:color/black"
                     android:layout_marginEnd="8dp" />
@@ -95,7 +95,7 @@
                     android:id="@+id/btnEast"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Este"
+                    android:text="▶"
                     android:backgroundTint="#0000FF"
                     android:textColor="@android:color/white"
                     android:layout_marginStart="8dp" />
@@ -106,7 +106,7 @@
                 android:id="@+id/btnSouth"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sur"
+                android:text="▼"
                 android:backgroundTint="#FF00FF"
                 android:textColor="@android:color/white"
                 android:layout_marginTop="8dp" />
@@ -114,7 +114,7 @@
 
         <!-- Controles de zoom -->
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
@@ -138,6 +138,15 @@
                 android:textColor="@android:color/white"
                 android:layout_marginStart="8dp" />
 
+        </LinearLayout>
+
+        <!-- Botones para iniciar servidor y conectar a dispositivo -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
             <Button
                 android:id="@+id/btnStartServer"
                 android:layout_width="0dp"
@@ -157,5 +166,6 @@
                 android:backgroundTint="@color/teal_700"
                 android:textColor="@color/white" />
         </LinearLayout>
+
     </LinearLayout>
 </FrameLayout>
