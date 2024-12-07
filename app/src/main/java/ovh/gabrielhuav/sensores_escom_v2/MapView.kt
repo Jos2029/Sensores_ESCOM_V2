@@ -91,6 +91,14 @@ class MapView(context: Context, attrs: AttributeSet? = null) : View(context, att
         invalidate()  // Redibuja la vista con los nuevos valores
     }
 
+    //método zoom in
+    fun zoomIn(){
+        scaleFactor*= 1.1f// Aumenta el valor de la escala
+        scaleFactor *= scaleFactor.coerceIn(0.5f, 3.0f) // Limita valor del zoom
+        constrainOffset() //Mapa no salga de los límites
+        invalidate() //Redibujar la vista con nuevos valores
+    }
+
     private fun constrainOffset() {
         if (backgroundBitmap == null) return
 
