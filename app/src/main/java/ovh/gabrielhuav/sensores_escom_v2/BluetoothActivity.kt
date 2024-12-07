@@ -25,6 +25,7 @@ class BluetoothActivity : AppCompatActivity(), BluetoothGameManager.ConnectionLi
     private lateinit var btnSouth: Button
     private lateinit var btnEast: Button
     private lateinit var btnWest: Button
+    private lateinit var btnZoomOut: Button
     private lateinit var tvBluetoothStatus: TextView
     private lateinit var tvPlayerPosition: TextView
     private lateinit var mapContainer: FrameLayout
@@ -77,6 +78,7 @@ class BluetoothActivity : AppCompatActivity(), BluetoothGameManager.ConnectionLi
         btnSouth = findViewById(R.id.btnSouth)
         btnEast = findViewById(R.id.btnEast)
         btnWest = findViewById(R.id.btnWest)
+        btnZoomOut = findViewById(R.id.btnZoomOut)
 
         mapView = MapView(this)
         mapContainer.addView(mapView)
@@ -90,6 +92,14 @@ class BluetoothActivity : AppCompatActivity(), BluetoothGameManager.ConnectionLi
 
         // Dibujar posición inicial del jugador local
         mapView.updateLocalPlayerPosition(localPlayerPosition)
+
+        // Agregar el listener para el botón de zoom out
+        btnZoomOut.setOnClickListener { zoomOut() }
+    }
+
+    // Método zoomOut que ya agregaste
+    private fun zoomOut() {
+        mapView.zoomOut()  // Asegúrate de tener un método `zoomOut()` en tu clase MapView.
     }
 
     private fun setupButtonListeners() {

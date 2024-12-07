@@ -33,6 +33,7 @@ class MapView(context: Context, attrs: AttributeSet? = null) : View(context, att
     var scaleFactor: Float = 1.0f
     private var localPlayerPosition: Pair<Int, Int>? = null
     private var remotePlayerPosition: Pair<Int, Int>? = null
+    private var zoomLevel = 1.0f
 
     private val backgroundBitmap: Bitmap? = try {
         BitmapFactory.decodeResource(resources, R.drawable.escom_mapa)
@@ -81,6 +82,13 @@ class MapView(context: Context, attrs: AttributeSet? = null) : View(context, att
                 return true
             }
         })
+    }
+    //metodo zoom out
+    fun zoomOut() {
+        scaleFactor *= 0.9f  // Reduce el factor de escala
+        scaleFactor = scaleFactor.coerceIn(0.5f, 3.0f)  // Limita el zoom entre 0.5x y 3x
+        constrainOffset()  // Asegura que el mapa no se salga de los límites
+        invalidate()  // Redibuja la vista con los nuevos valores
     }
 
     private fun constrainOffset() {
